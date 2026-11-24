@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мұғалімдер — Әлімхан Ермеков атындағы мектеп-лицей</title>
+<link rel="icon" href="logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="header">
+  <div class="container nav">
+    <a href="index.html" class="brand">
+      <img src="logo.jpeg" alt="Мектеп логотипі">
+      <div class="brand-text">
+        <strong>Әлімхан Ермеков атындағы</strong>
+        <span>Мектеп-лицей</span>
+      </div>
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="mektep.html">Мектеп туралы</a></li>
+      <li><a href="mugalimder.html" class="active">Мұғалімдер</a></li>
+      <li><a href="oqushylar.html">Оқушылар</a></li>
+      <li><a href="ermekov.html">Әлімхан Ермеков туралы</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Мәзір"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container reveal">
+    <div class="crumbs"><a href="index.html">Басты бет</a> / Мұғалімдер</div>
+    <h1>Біздің мұғалімдер</h1>
+    <p>Тәжірибелі, білікті және шәкіртіне шын жанашыр ұстаздар.</p>
+  </div>
+</section>
+
+<section class="section teachers-wrap">
+  <div class="container">
+    <div class="teachers" id="teachers"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo.jpeg" alt="Мектеп логотипі">
+        <p>Әлімхан Ермеков атындағы мектеп-лицей. Білім, ғылым, тәрбие.</p>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="index.html">Басты бет</a></li>
+          <li><a href="mektep.html">Мектеп туралы</a></li>
+          <li><a href="mugalimder.html">Мұғалімдер</a></li>
+          <li><a href="oqushylar.html">Оқушылар</a></li>
+          <li><a href="ermekov.html">Әлімхан Ермеков туралы</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Байланыс</h4>
+        <ul>
+          <li>📍 Мекенжай: <!-- TODO --></li>
+          <li>📞 Телефон: <!-- TODO --></li>
+          <li>✉️ Email: <!-- TODO --></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">© 2026 Әлімхан Ермеков атындағы мектеп-лицей. Барлық құқықтар қорғалған.</div>
+  </div>
+</footer>
+
+<script>
+  // Ұстаздар деректері. Мысал: { name: "Аты-жөні", subject: "Пән", photo: "teacher1.jpg" }
+  const teachers = [];
+</script>
+<script src="main.js"></script>
+</body>
+</html>

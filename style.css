@@ -1,0 +1,1181 @@
+/* =====================================================
+   1. ЖАЛПЫ КАЙНАР МӘНДЕР (ТҮСТЕР, ӨРНЕКТЕР)
+   Түстер логотиптен алынған.
+   ===================================================== */
+
+:root {
+  /* Түстер */
+  --indigo:       #322279;
+  --indigo-deep:  #1b1247;
+  --indigo-soft:  #eeebf8;
+  --orange:       #E68B4A;
+  --gold:         #E3AE4E;
+  --cream:        #FBF7EF;
+  --paper:        #FFFFFF;
+  --ink:          #1f1a33;
+  --muted:        #6b6584;
+  --line:         rgba(50, 34, 121, .12);
+
+  /* Анимация */
+  --ease: cubic-bezier(.22, .61, .36, 1);
+
+  /* Қошқар мүйіз — ромб және завитоктар (қазақ өрнегі), ашық фонға */
+  --orn: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><g fill='none' stroke='%23322279' stroke-opacity='.16' stroke-width='1.2' stroke-linecap='round'><path d='M30 4 L56 30 L30 56 L4 30 Z'/><path d='M30 14 C40 12 44 22 37 26 C32 29 27 24 31 20'/><path d='M30 46 C20 48 16 38 23 34 C28 31 33 36 29 40'/><path d='M14 30 C12 20 22 16 26 23 C29 29 22 33 18 29'/><path d='M46 30 C48 40 38 44 34 37 C31 31 38 27 42 31'/><circle cx='30' cy='30' r='2.5'/></g></svg>");
+
+  /* Сол өрнек, бірақ алтын түспен — қара фонға */
+  --orn-gold: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><g fill='none' stroke='%23E3AE4E' stroke-opacity='.25' stroke-width='1.2' stroke-linecap='round'><path d='M30 4 L56 30 L30 56 L4 30 Z'/><path d='M30 14 C40 12 44 22 37 26 C32 29 27 24 31 20'/><path d='M30 46 C20 48 16 38 23 34 C28 31 33 36 29 40'/><path d='M14 30 C12 20 22 16 26 23 C29 29 22 33 18 29'/><path d='M46 30 C48 40 38 44 34 37 C31 31 38 27 42 31'/><circle cx='30' cy='30' r='2.5'/></g></svg>");
+
+  /* Шырышқ — екі түсті үшбұрыштар жолағы */
+  --shyrshyk: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='14' viewBox='0 0 56 14'><path d='M0 0 L14 14 L28 0 Z' fill='%23E68B4A'/><path d='M28 0 L42 14 L56 0 Z' fill='%23E3AE4E'/></svg>");
+}
+
+/* =====================================================
+   2. НЕГІЗГІ РЕТТЕУ
+   ===================================================== */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: 'Manrope', system-ui, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+em { font-style: italic; }
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+/* =====================================================
+   3. ОРТАҚ ЭЛЕМЕНТТЕР
+   ===================================================== */
+
+.section {
+  padding: 130px 0;
+}
+
+/* Бөлімнің фонына қошқар мүйіз өрнегі */
+.section.pattern {
+  background-image: var(--orn);
+  background-size: 60px 60px;
+}
+
+/* Бөлімдер арасындағы шырышқ жолағы */
+.shyrshyk {
+  height: 14px;
+  background: var(--shyrshyk) repeat-x 0 0;
+}
+
+/* Кішкентай жоғарғы жазу, мысалы: «САЙТ БӨЛІМДЕРІ» */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.eyebrow::before {
+  content: "";
+  width: 36px;
+  height: 2px;
+  background: var(--gold);
+}
+
+.title {
+  margin-bottom: 22px;
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  color: var(--indigo-deep);
+}
+.title em { color: var(--orange); }
+
+.head {
+  margin-bottom: 80px;
+}
+.head.center { text-align: center; }
+
+/* Батырмалар */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 17px 34px;
+  border: none;
+  border-radius: 999px;
+  font-size: .95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .4s var(--ease), background .4s, color .4s, box-shadow .4s;
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: #fff;
+  box-shadow: 0 16px 34px -12px rgba(230, 139, 74, .8);
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  background: #d97b38;
+}
+
+.btn-outline {
+  border: 1.5px solid rgba(255, 255, 255, .5);
+  color: #fff;
+}
+.btn-outline:hover {
+  transform: translateY(-3px);
+  background: #fff;
+  color: var(--indigo-deep);
+}
+
+/* =====================================================
+   4. ШАПКА ЖӘНЕ НАВИГАЦИЯ
+   ===================================================== */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 26px 0;
+  transition: all .5s var(--ease);
+}
+
+/* Бет жоғарыдан төмен қарай өткенде шапка ақ болады */
+header.scrolled {
+  padding: 14px 0;
+  background: rgba(255, 255, 255, .94);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 var(--line);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Логотип және мектеп атауы */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.brand img {
+  height: 48px;
+  width: auto;
+  padding: 3px;
+  border-radius: 10px;
+  background: #fff;
+}
+.brand-text strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.05;
+  color: #fff;
+  transition: color .4s;
+}
+.brand-text span {
+  font-size: .66rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: color .4s;
+}
+header.scrolled .brand-text strong { color: var(--indigo-deep); }
+header.scrolled .brand-text span   { color: var(--orange); }
+
+/* Desktop-мәзір */
+.menu {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+}
+.menu a {
+  display: block;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: .9rem;
+  font-weight: 600;
+  color: #fff;
+  transition: background .3s, color .3s;
+}
+.menu a:hover,
+.menu a.active {
+  background: rgba(255, 255, 255, .16);
+}
+header.scrolled .menu a {
+  color: var(--indigo-deep);
+}
+header.scrolled .menu a:hover,
+header.scrolled .menu a.active {
+  background: var(--indigo-soft);
+  color: var(--indigo);
+}
+
+/* Бургер батырмасы (мобильді) */
+.burger {
+  display: none;
+  position: relative;
+  z-index: 2;
+  width: 46px;
+  height: 46px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .16);
+  cursor: pointer;
+}
+.burger span {
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: #fff;
+  transition: .3s;
+}
+header.scrolled .burger { background: var(--indigo-soft); }
+header.scrolled .burger span { background: var(--indigo); }
+
+/* Бургер «×» болып өзгереді */
+.burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* =====================================================
+   5. БАСТЫ БЕТ (HERO)
+   ===================================================== */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 150px 0 120px;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(227, 174, 78, .32), transparent 42%),
+    linear-gradient(135deg, var(--indigo-deep) 0%, var(--indigo) 75%);
+}
+
+/* Қара фонда алтын өрнек */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--orn-gold);
+  background-size: 60px 60px;
+}
+
+/* Мектеп фотосы, жартылай мөлдір */
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  background: var(--hero-img) center / cover no-repeat;
+  opacity: .22;
+  transform: scale(1.08);
+  animation: slowZoom 24s ease-in-out infinite alternate;
+}
+@keyframes slowZoom {
+  to { transform: scale(1); }
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+}
+.hero .eyebrow { color: var(--gold); }
+.hero h1 {
+  margin-bottom: 30px;
+  font-size: clamp(3.2rem, 8.5vw, 6.8rem);
+  line-height: .98;
+}
+.hero h1 em { color: var(--gold); }
+.hero p {
+  max-width: 600px;
+  margin-bottom: 46px;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, .85);
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* =====================================================
+   6. ІШКІ БЕТТЕРДІҢ ТАҚЫРЫП БЛОГЫ
+   ===================================================== */
+
+.page-hero {
+  position: relative;
+  padding: 190px 0 110px;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(circle at 88% 20%, rgba(227, 174, 78, .3), transparent 40%),
+    linear-gradient(135deg, var(--indigo-deep), var(--indigo) 75%);
+}
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--orn-gold);
+  background-size: 60px 60px;
+}
+.page-hero > .container {
+  position: relative;
+  z-index: 2;
+}
+.page-hero .eyebrow { color: var(--gold); }
+.page-hero h1 {
+  margin-bottom: 22px;
+  font-size: clamp(3rem, 7vw, 5.6rem);
+}
+.page-hero h1 em { color: var(--gold); }
+.page-hero p {
+  max-width: 640px;
+  font-size: 1.12rem;
+  color: rgba(255, 255, 255, .85);
+}
+
+.crumbs {
+  margin-bottom: 22px;
+  font-size: .85rem;
+  color: rgba(255, 255, 255, .6);
+}
+.crumbs a:hover { color: var(--gold); }
+
+/* =====================================================
+   7. БЕГУЩАЯ СТРОКА ЖӘНЕ САНДАР
+   ===================================================== */
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 22px 0;
+  background: var(--orange);
+  color: #fff;
+}
+.marquee-track {
+  display: inline-flex;
+  gap: 46px;
+  animation: marquee 34s linear infinite;
+}
+.marquee-track span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  font-style: italic;
+  font-weight: 600;
+}
+.marquee-track span::after {
+  content: "✦";
+  margin-left: 46px;
+  font-style: normal;
+  color: var(--indigo-deep);
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.fact {
+  position: relative;
+  padding: 52px 28px;
+  text-align: center;
+}
+.fact + .fact::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 30%;
+  bottom: 30%;
+  width: 1px;
+  background: var(--line);
+}
+.fact b {
+  display: block;
+  margin-bottom: 10px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--indigo);
+}
+.fact span {
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* =====================================================
+   8. БӨЛІМ КАРТОЧКАЛАРЫ (ГЛАВНАЯ)
+   ===================================================== */
+
+.sections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+.sec-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 48px 38px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background: var(--paper);
+  transition: transform .5s var(--ease), background .5s, color .5s, box-shadow .5s;
+}
+/* Карточканың бұрышындағы өрнек */
+.sec-card::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -40px;
+  width: 160px;
+  height: 160px;
+  background-image: var(--orn-gold);
+  background-size: 60px;
+  opacity: .9;
+  transition: transform .8s var(--ease);
+}
+.sec-card:hover {
+  transform: translateY(-8px);
+  background: var(--indigo);
+  color: #fff;
+  box-shadow: 0 30px 60px -28px rgba(50, 34, 121, .6);
+}
+.sec-card:hover::after { transform: rotate(45deg); }
+
+.sec-card .idx {
+  margin-bottom: 26px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: var(--orange);
+}
+.sec-card h3 {
+  margin-bottom: 14px;
+  font-size: 2.1rem;
+  color: var(--indigo-deep);
+  transition: color .5s;
+}
+.sec-card p {
+  margin-bottom: 26px;
+  font-size: .97rem;
+  color: var(--muted);
+  transition: color .5s;
+}
+.sec-card .more {
+  margin-top: auto;
+  font-size: .92rem;
+  font-weight: 700;
+  color: var(--orange);
+  transition: color .5s;
+}
+.sec-card:hover h3   { color: #fff; }
+.sec-card:hover p    { color: rgba(255, 255, 255, .8); }
+.sec-card:hover .more { color: var(--gold); }
+
+/* =====================================================
+   9. МЕКТЕП ТУРАЛЫ
+   ===================================================== */
+
+.about {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 90px;
+  align-items: center;
+}
+.about-text p {
+  margin-bottom: 22px;
+  font-size: 1.06rem;
+  color: var(--muted);
+}
+/* Арка түріндегі фото */
+.about-photo {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  border-radius: 200px 200px 36px 36px;
+  background:
+    var(--hero-img) center / cover no-repeat,
+    linear-gradient(160deg, var(--indigo), var(--indigo-deep));
+  box-shadow: 0 40px 80px -40px rgba(50, 34, 121, .6);
+}
+.about-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--orn-gold);
+  background-size: 60px;
+  opacity: .8;
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 110px;
+}
+.pillar {
+  padding: 46px 36px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--orange);
+  border-radius: 28px;
+  background: var(--paper);
+  transition: transform .5s var(--ease), box-shadow .5s;
+}
+.pillar:nth-child(2) { border-top-color: var(--gold); }
+.pillar:nth-child(3) { border-top-color: var(--indigo); }
+.pillar:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px -30px rgba(50, 34, 121, .4);
+}
+.pillar .num {
+  display: block;
+  margin-bottom: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--gold);
+}
+.pillar h3 {
+  margin-bottom: 12px;
+  font-size: 1.85rem;
+  color: var(--indigo-deep);
+}
+.pillar p {
+  font-size: .97rem;
+  color: var(--muted);
+}
+
+/* =====================================================
+   10. ЦИТАТА
+   ===================================================== */
+
+.quote-block {
+  position: relative;
+  overflow: hidden;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 60px;
+  text-align: center;
+  border-radius: 40px;
+  background: var(--indigo);
+  color: #fff;
+}
+.quote-block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--orn-gold);
+  background-size: 60px;
+}
+.quote-block > * { position: relative; }
+.quote-block p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  font-style: italic;
+  line-height: 1.4;
+}
+.quote-block small {
+  display: block;
+  margin-top: 24px;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* =====================================================
+   11. ҰСТАЗДАР
+   ===================================================== */
+
+.teachers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
+}
+.teacher {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--paper);
+  transition: transform .5s var(--ease), box-shadow .5s;
+}
+.teacher:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px -30px rgba(50, 34, 121, .4);
+}
+.teacher-photo {
+  display: grid;
+  place-items: center;
+  height: 280px;
+  background: var(--indigo-soft) var(--orn) 0 0 / 60px;
+}
+.teacher-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.teacher-photo span {
+  display: grid;
+  place-items: center;
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  background: var(--indigo);
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  box-shadow: 0 0 0 8px rgba(227, 174, 78, .25);
+}
+.teacher-info { padding: 28px; }
+.teacher-info h3 {
+  margin-bottom: 4px;
+  font-size: 1.6rem;
+  color: var(--indigo-deep);
+}
+.teacher-info p {
+  font-size: .9rem;
+  color: var(--muted);
+}
+.tag {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 6px 15px;
+  border-radius: 999px;
+  background: var(--indigo-soft);
+  color: var(--indigo);
+  font-size: .78rem;
+  font-weight: 700;
+}
+.empty-note {
+  grid-column: 1 / -1;
+  padding: 60px 20px;
+  border: 1.5px dashed var(--line);
+  border-radius: 28px;
+  background: var(--paper);
+  text-align: center;
+  color: var(--muted);
+}
+
+/* =====================================================
+   12. ОҚУШЫЛАР
+   ===================================================== */
+
+.students-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.student-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 340px;
+  padding: 60px 48px;
+  border-radius: 34px;
+  background: var(--indigo);
+  color: #fff;
+  transition: transform .5s var(--ease);
+}
+.student-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--orn-gold);
+  background-size: 60px;
+}
+.student-card:nth-child(2) {
+  background: var(--orange);
+}
+.student-card:nth-child(2)::before {
+  background-image: var(--orn);
+}
+.student-card:hover { transform: translateY(-6px); }
+.student-card > * { position: relative; }
+.student-card h3 {
+  margin-bottom: 12px;
+  font-size: 2.6rem;
+}
+.student-card p {
+  max-width: 440px;
+  font-size: 1rem;
+  opacity: .9;
+}
+
+/* =====================================================
+   13. ӘЛІМХАН ЕРМЕКОВ
+   ===================================================== */
+
+.bio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* Сол жақтағы жабысқақ карточка */
+.bio-card {
+  position: sticky;
+  top: 130px;
+  overflow: hidden;
+  padding: 56px 46px;
+  border-radius: 40px;
+  background: var(--indigo);
+  color: #fff;
+  box-shadow: 0 40px 80px -40px rgba(50, 34, 121, .7);
+}
+.bio-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--orn-gold);
+  background-size: 60px;
+}
+.bio-card > * { position: relative; }
+.bio-card h3 {
+  margin-bottom: 8px;
+  font-size: 2.6rem;
+}
+.bio-card .years {
+  margin-bottom: 32px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--gold);
+}
+.bio-card dl {
+  display: grid;
+  gap: 20px;
+}
+.bio-card dt {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  opacity: .6;
+}
+.bio-card dd { font-weight: 600; }
+
+.titles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 34px;
+}
+.titles span {
+  padding: 6px 15px;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .12);
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.bio-block { margin-bottom: 84px; }
+.bio-block h3 {
+  margin-bottom: 20px;
+  font-size: 2.4rem;
+  color: var(--indigo-deep);
+}
+.bio-block p {
+  margin-bottom: 18px;
+  font-size: 1.04rem;
+  color: var(--muted);
+}
+.bio-block p em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.cards3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+  margin-top: 30px;
+}
+.mini {
+  padding: 34px 30px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--orange);
+  border-radius: 26px;
+  background: var(--paper);
+}
+.mini:nth-child(3n+2) { border-top-color: var(--gold); }
+.mini:nth-child(3n+3) { border-top-color: var(--indigo); }
+.mini h4 {
+  margin-bottom: 12px;
+  font-size: 1.55rem;
+  color: var(--indigo-deep);
+}
+.mini p {
+  margin: 0;
+  font-size: .95rem;
+  color: var(--muted);
+}
+
+/* Отбасы карточкалары */
+.family {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 22px;
+  margin-top: 30px;
+}
+.member {
+  position: relative;
+  overflow: hidden;
+  padding: 38px 32px;
+  border-radius: 30px;
+  background: var(--indigo);
+  color: #fff;
+}
+.member::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--orn-gold);
+  background-size: 60px;
+}
+.member > * { position: relative; }
+.member:nth-child(2) { background: var(--orange); }
+.member:nth-child(2)::after { background-image: var(--orn); }
+.member:nth-child(3) { background: var(--indigo-deep); }
+.member small {
+  display: block;
+  margin-bottom: 12px;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.member:nth-child(2) small { color: #fff8e6; }
+.member h4 {
+  margin-bottom: 12px;
+  font-size: 1.6rem;
+}
+.member p {
+  font-size: .93rem;
+  opacity: .92;
+}
+
+/* Хронология: сүзгі түймелері */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0 50px;
+}
+.filter {
+  padding: 10px 20px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--indigo);
+  font-size: .88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .3s var(--ease);
+}
+.filter:hover { border-color: var(--orange); }
+.filter.active {
+  border-color: var(--indigo);
+  background: var(--indigo);
+  color: #fff;
+}
+
+/* Хронология сызығы */
+.timeline {
+  position: relative;
+  padding-left: 48px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background: linear-gradient(var(--orange), var(--gold), var(--indigo));
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 22px;
+  padding: 26px 30px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--paper);
+  transition: transform .4s var(--ease), box-shadow .4s;
+}
+.tl-item:hover {
+  transform: translateX(6px);
+  box-shadow: 0 24px 50px -28px rgba(50, 34, 121, .45);
+}
+/* Нүкте */
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: -42px;
+  top: 32px;
+  width: 16px;
+  height: 16px;
+  border: 3px solid var(--orange);
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: 0 0 0 6px rgba(230, 139, 74, .15);
+}
+.tl-item.era-alash::before  { border-color: var(--gold);    box-shadow: 0 0 0 6px rgba(227, 174, 78, .2); }
+.tl-item.era-ilim::before   { border-color: var(--indigo);  box-shadow: 0 0 0 6px rgba(50, 34, 121, .12); }
+.tl-item.era-kugyn::before  { border-color: #8a2d3b;        box-shadow: 0 0 0 6px rgba(138, 45, 59, .12); }
+.tl-item.era-soniki::before { border-color: #3d8a6b;        box-shadow: 0 0 0 6px rgba(61, 138, 107, .12); }
+.tl-item.hidden { display: none; }
+
+.tl-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.tl-year {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--orange);
+}
+.tl-age {
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: var(--indigo-soft);
+  font-size: .76rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+.tl-item p {
+  font-size: .98rem;
+  color: var(--ink);
+}
+.tl-empty {
+  display: none;
+  padding: 30px 0;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* =====================================================
+   14. ПОДВАЛ (FOOTER)
+   ===================================================== */
+
+footer {
+  position: relative;
+  overflow: hidden;
+  padding: 110px 0 40px;
+  background: var(--indigo-deep);
+  color: rgba(255, 255, 255, .72);
+}
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--orn-gold);
+  background-size: 60px;
+}
+footer > .container { position: relative; }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 56px;
+}
+.footer-brand img {
+  height: 66px;
+  margin-bottom: 22px;
+  padding: 8px;
+  border-radius: 16px;
+  background: #fff;
+}
+.footer-brand p { max-width: 340px; }
+
+footer h4 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #fff;
+}
+footer ul {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+}
+footer ul a:hover { color: var(--gold); }
+
+.copy {
+  margin-top: 72px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  text-align: center;
+  font-size: .86rem;
+}
+
+/* =====================================================
+   15. ПОЯВЛЕНИЕ ПРИ ПРОКРУТКЕ
+   ===================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s var(--ease), transform 1s var(--ease);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+.d1 { transition-delay: .12s; }
+.d2 { transition-delay: .24s; }
+.d3 { transition-delay: .36s; }
+
+/* =====================================================
+   16. АДАПТИВ (ПЛАНШЕТ ЖӘНЕ ТЕЛЕФОН)
+   ===================================================== */
+
+@media (max-width: 1024px) {
+  .about,
+  .bio-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  .bio-card {
+    position: relative;
+    top: 0;
+  }
+  .about-photo { min-height: 380px; }
+
+  .facts { grid-template-columns: repeat(2, 1fr); }
+  .fact:nth-child(3)::before { display: none; }
+}
+
+@media (max-width: 860px) {
+  .burger { display: flex; }
+
+  header.scrolled { backdrop-filter: none; }
+
+  /* Толық экранды мәзір */
+  .menu {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    padding: 120px 30px 60px;
+    background: var(--indigo-deep);
+    counter-reset: m;
+    transform: translateY(-100%);
+    transition: transform .6s var(--ease);
+  }
+  .menu.open { transform: translateY(0); }
+
+  .menu li { counter-increment: m; }
+  .menu a {
+    padding: 10px 0;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    background: none !important;
+    color: #fff !important;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+  }
+  .menu a::before {
+    content: counter(m, decimal-leading-zero) "  ";
+    margin-right: 6px;
+    vertical-align: middle;
+    font-family: 'Manrope', sans-serif;
+    font-size: .8rem;
+    letter-spacing: .1em;
+    color: var(--gold);
+  }
+  .menu a.active { color: var(--gold) !important; }
+
+  .students-grid,
+  .footer-grid { grid-template-columns: 1fr; }
+
+  .marquee-track span { font-size: 1.5rem; }
+}
+
+@media (max-width: 560px) {
+  .section { padding: 90px 0; }
+  .brand-text span { display: none; }
+
+  .quote-block { padding: 60px 26px; }
+
+  .timeline { padding-left: 36px; }
+  .timeline::before { left: 8px; }
+  .tl-item::before { left: -36px; }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bio-card { padding: 44px 30px; }
+
+  .fact b { font-size: 3rem; }
+  .facts { grid-template-columns: 1fr 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
